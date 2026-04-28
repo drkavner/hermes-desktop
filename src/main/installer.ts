@@ -197,7 +197,7 @@ export function clearVersionCache(): void {
 
 export function runHermesDoctor(): string {
   if (!existsSync(HERMES_PYTHON) || !existsSync(HERMES_SCRIPT)) {
-    return "Hermes is not installed.";
+    return "Cerebratech AI is not installed.";
   }
   try {
     const output = execSync(`"${HERMES_PYTHON}" "${HERMES_SCRIPT}" doctor`, {
@@ -234,7 +234,7 @@ export async function runClawMigrate(
   onProgress: (progress: InstallProgress) => void,
 ): Promise<void> {
   if (!existsSync(HERMES_PYTHON) || !existsSync(HERMES_SCRIPT)) {
-    throw new Error("Hermes is not installed.");
+    throw new Error("Cerebratech AI is not installed.");
   }
 
   const openclaw = checkOpenClawExists();
@@ -298,7 +298,7 @@ export async function runHermesUpdate(
   onProgress: (progress: InstallProgress) => void,
 ): Promise<void> {
   if (!existsSync(HERMES_PYTHON) || !existsSync(HERMES_SCRIPT)) {
-    throw new Error("Hermes is not installed. Please install it first.");
+    throw new Error("Cerebratech AI is not installed. Please install it first.");
   }
 
   let log = "";
@@ -307,7 +307,7 @@ export async function runHermesUpdate(
     onProgress({
       step: 1,
       totalSteps: 1,
-      title: "Updating Hermes Agent",
+      title: "Updating Cerebratech AI",
       detail: text.trim().slice(0, 120),
       log,
     });
@@ -385,7 +385,7 @@ const STAGE_MARKERS: { pattern: RegExp; step: number; title: string }[] = [
   {
     pattern: /Cloning|cloning|Updating.*repository|Repository/i,
     step: 4,
-    title: "Downloading Hermes Agent",
+    title: "Downloading Cerebratech AI",
   },
   {
     pattern: /Creating virtual|virtual environment|venv/i,
@@ -433,7 +433,7 @@ export async function runInstall(
     });
   }
 
-  emit("Running official Hermes install script...\n");
+  emit("Running official install script...\n");
 
   return new Promise((resolve, reject) => {
     const home = homedir();
@@ -476,7 +476,7 @@ export async function runInstall(
         // If Hermes is actually installed and working, treat as success.
         if (existsSync(HERMES_PYTHON) && existsSync(HERMES_SCRIPT)) {
           emit(
-            "\nInstall script exited with warnings, but Hermes is installed successfully.\n",
+            "\nInstall script exited with warnings, but Cerebratech AI is installed successfully.\n",
           );
           resolve();
         } else {
@@ -503,7 +503,7 @@ export async function runHermesBackup(
   profile?: string,
 ): Promise<{ success: boolean; path?: string; error?: string }> {
   if (!existsSync(HERMES_PYTHON) || !existsSync(HERMES_SCRIPT)) {
-    return { success: false, error: "Hermes is not installed." };
+    return { success: false, error: "Cerebratech AI is not installed." };
   }
   const args = [HERMES_SCRIPT, "backup"];
   if (profile && profile !== "default") args.push("-p", profile);
@@ -550,7 +550,7 @@ export async function runHermesImport(
   profile?: string,
 ): Promise<{ success: boolean; error?: string }> {
   if (!existsSync(HERMES_PYTHON) || !existsSync(HERMES_SCRIPT)) {
-    return { success: false, error: "Hermes is not installed." };
+    return { success: false, error: "Cerebratech AI is not installed." };
   }
   const args = [HERMES_SCRIPT, "import", archivePath];
   if (profile && profile !== "default") args.push("-p", profile);
@@ -590,7 +590,7 @@ export async function runHermesImport(
 
 export function runHermesDump(): Promise<string> {
   if (!existsSync(HERMES_PYTHON) || !existsSync(HERMES_SCRIPT)) {
-    return Promise.resolve("Hermes is not installed.");
+    return Promise.resolve("Cerebratech AI is not installed.");
   }
   return new Promise((resolve) => {
     execFile(

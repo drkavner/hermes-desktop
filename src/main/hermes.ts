@@ -549,8 +549,8 @@ function sendMessageViaCli(
       const detail = stderrBuffer.trim();
       cb.onError(
         detail
-          ? `Hermes exited with code ${code}: ${detail}`
-          : `Hermes exited with code ${code}. Check your model configuration and API key.`,
+          ? `Cerebratech AI exited with code ${code}: ${detail}`
+          : `Cerebratech AI exited with code ${code}. Check your model configuration and API key.`,
       );
     }
   });

@@ -44,7 +44,7 @@ function Welcome({
         onRecheck();
       } else {
         setRemoteError(
-          "Could not reach Hermes at this URL. Check the URL and API key.",
+          "Could not reach Cerebratech AI at this URL. Check the URL and API key.",
         );
       }
     } catch {
@@ -186,7 +186,7 @@ function Welcome({
               onClick={() => setShowRemote(true)}
             >
               <Globe size={16} />
-              Connect to Remote Hermes
+              Connect to Remote Cerebratech AI
             </button>
           </div>
         </>

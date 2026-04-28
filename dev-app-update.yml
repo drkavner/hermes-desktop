@@ -1,4 +1,4 @@
 provider: github
-owner: fathah
-repo: hermes-desktop
-updaterCacheDirName: hermes-desktop-updater
+owner: cerebratech
+repo: cerebratech-ai-desktop
+updaterCacheDirName: cerebratech-ai-desktop-updater

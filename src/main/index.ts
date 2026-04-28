@@ -370,7 +370,7 @@ function setupIPC(): void {
                 .trim()
                 .slice(0, 80);
               new Notification({
-                title: "Hermes Agent",
+                title: "Cerebratech AI",
                 body: preview || "Response ready",
               }).show();
             }
@@ -382,7 +382,7 @@ function setupIPC(): void {
             // Notify on error too if window not focused
             if (mainWindow && !mainWindow.isFocused()) {
               new Notification({
-                title: "Hermes Agent — Error",
+                title: "Cerebratech AI — Error",
                 body: error.slice(0, 100),
               }).show();
             }
@@ -758,15 +758,15 @@ function buildMenu(): void {
       label: "Help",
       submenu: [
         {
-          label: "Hermes Agent on GitHub",
+          label: "Cerebratech AI on GitHub",
           click: (): void => {
-            shell.openExternal("https://github.com/fathah/Hermes-Agent");
+            shell.openExternal("https://github.com/cerebratech/cerebratech-ai-desktop");
           },
         },
         {
           label: "Report an Issue",
           click: (): void => {
-            shell.openExternal("https://github.com/fathah/Hermes-Agent/issues");
+            shell.openExternal("https://github.com/cerebratech/cerebratech-ai-desktop/issues");
           },
         },
       ],
@@ -843,8 +843,8 @@ function setupUpdater(): void {
 }
 
 app.whenReady().then(() => {
-  app.name = "Hermes";
-  electronApp.setAppUserModelId("com.nousresearch.hermes");
+  app.name = "Cerebratech AI";
+  electronApp.setAppUserModelId("ai.cerebratech.desktop");
 
   app.on("browser-window-created", (_, window) => {
     optimizer.watchWindowShortcuts(window);
